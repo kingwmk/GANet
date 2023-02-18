@@ -10,7 +10,14 @@ This repo is for our ICRA 2023 paper `"GANet: Goal Area Network for Motion Forec
 [[arXiv]](https://arxiv.org/abs/2209.09723)
 
 ## Abstract
-Predicting multimodal future behavior of traffic participants is essential for robotic vehicles to make safe decisions. Existing works explore to directly predict future trajectories based on latent features or utilize dense goal candidates to identify agent's destinations, where the former strategy converges slowly since all motion modes are derived from the same feature while the latter strategy has efficiency issue since its performance highly relies on the density of goal candidates. In this paper, we propose the Motion TRansformer (MTR) framework that models motion prediction as the joint optimization of global intention localization and local movement refinement. Instead of using goal candidates, MTR incorporates spatial intention priors by adopting a small set of learnable motion query pairs. Each motion query pair takes charge of trajectory prediction and refinement for a specific motion mode, which stabilizes the training process and facilitates better multimodal predictions. Experiments show that MTR achieves state-of-the-art performance on both the marginal and joint motion prediction challenges, ranking $1^{st}$ on the leaderbaords of Waymo Open Motion Dataset.
+Predicting the future motion of road participants is crucial for autonomous driving but is extremely challenging due to staggering motion uncertainty.
+Recently, most motion forecasting methods resort to the goal-based strategy, i.e., predicting endpoints of motion trajectories as conditions to regress the entire trajectories, so that the search space of solution can be reduced.
+However, accurate goal coordinates are hard to predict and evaluate.
+In addition, the point representation of the destination limits the utilization of a rich road context, leading to inaccurate prediction results in many cases. Goal area, i.e., the possible destination area, rather than goal coordinate, could provide a more soft constraint for searching potential trajectories by involving more tolerance and guidance.  
+In view of this, we propose a new goal area-based framework, named Goal Area Network (GANet), for motion forecasting, which models goal areas as preconditions for trajectory prediction, performing more robustly and accurately.
+Specifically, we propose a GoICrop (Goal Area of Interest) operator to effectively extract semantic lane features in goal areas and model actors' future interactions, which benefits a lot for future trajectory estimations.
+GANet ranks the \textbf{1st} on the leaderboard of Argoverse Challenge among all public literature (till the paper submission).
+Code will be available at https://github.com/kingwmk/GANet.
 
 ## Code 
 Code will be released soon. 
